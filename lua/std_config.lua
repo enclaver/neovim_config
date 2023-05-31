@@ -1,10 +1,10 @@
 -- Basic
 vim.o.guicursor = "" -- Fix insert mode glitch
 vim.wo.number = true
-vim.bo.tabstop = 2
-vim.bo.shiftwidth = 2
-vim.bo.softtabstop = 2
-vim.bo.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+vim.o.expandtab = true
 vim.o.encoding = "utf-8"
 vim.wo.list = true -- Show invisible characters
 vim.o.listchars = "tab:$\\,eol:¬"

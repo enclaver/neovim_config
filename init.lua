@@ -44,6 +44,12 @@ return require('packer').startup(function()
   use 'ryanoasis/vim-devicons' -- NERDTree likes these
   use 'nvim-tree/nvim-web-devicons' -- Telescope likes these
 
+  -- Status line
+  use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
+
+  -- TEMP
+  use "sindrets/diffview.nvim"
+
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
   require('std_config')
@@ -54,4 +60,5 @@ return require('packer').startup(function()
   require('lsp_config')
   require('cmp_config')
   require('telescope_config')
+  require('lualine_config')
 end)
