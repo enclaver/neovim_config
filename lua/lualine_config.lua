@@ -7,7 +7,13 @@ require('lualine').setup({
       {
         'branch',
         fmt = function(str) return str:sub(1,15) end
-      }
+      },
+      {
+        'diff',
+      },
+      {
+        'diagnostics',
+      },
     },
     lualine_c = {
       {
