@@ -48,7 +48,7 @@ return require('packer').startup(function()
   use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
 
   -- TEMP
-  use "sindrets/diffview.nvim"
+  use 'sindrets/diffview.nvim'
 
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
