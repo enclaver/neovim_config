@@ -39,6 +39,7 @@ return require('packer').startup(function()
   -- Telescope
   use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
+  use 'nvim-telescope/telescope-ui-select.nvim'
 
   -- Icons
   use 'ryanoasis/vim-devicons' -- NERDTree likes these
@@ -46,6 +47,9 @@ return require('packer').startup(function()
 
   -- Status line
   use { 'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true } }
+
+  -- Comments
+  use 'numToStr/Comment.nvim'
 
   -- TEMP
   use 'sindrets/diffview.nvim'
@@ -61,4 +65,6 @@ return require('packer').startup(function()
   require('cmp_config')
   require('telescope_config')
   require('lualine_config')
+
+  require('Comment').setup{}
 end)
