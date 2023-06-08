@@ -53,6 +53,7 @@ return require('packer').startup(function()
 
   -- TEMP
   use 'sindrets/diffview.nvim'
+  use 'lewis6991/gitsigns.nvim'
 
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
@@ -65,6 +66,7 @@ return require('packer').startup(function()
   require('cmp_config')
   require('telescope_config')
   require('lualine_config')
+  require('gitsigns_config')
 
   require('Comment').setup{}
 end)
