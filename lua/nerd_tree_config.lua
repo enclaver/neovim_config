@@ -2,7 +2,7 @@
 vim.g.NERDTreeShowHidden = 1
 
 -- NERDTree key mapping
-vim.api.nvim_set_keymap('n', '<Tab>', ':NERDTreeMirror<CR>:NERDTreeFocus<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Tab>', ':NERDTreeMirror<CR>:NERDTreeFind<CR>', { noremap = true })
 
 -- Close the tab if NERDTree is the only window remaining in it
 vim.cmd([[
