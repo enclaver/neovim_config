@@ -54,6 +54,17 @@ return require('packer').startup(function()
   -- TEMP
   use 'sindrets/diffview.nvim'
   use 'lewis6991/gitsigns.nvim'
+  use 'habamax/vim-godot'
+
+  -- DEV
+  use {
+    'enclaver/spectacle.nvim',
+    branch = 'enclaver/create-dir-on-save',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim'
+    }
+  }
 
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
@@ -69,4 +80,8 @@ return require('packer').startup(function()
   require('gitsigns_config')
 
   require('Comment').setup{}
+
+  vim.api.nvim_set_keymap('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>',{})
+  vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>',{})
+  vim.api.nvim_set_keymap('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>',{})
 end)
