@@ -40,6 +40,13 @@ return require('packer').startup(function()
   use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
   use 'nvim-telescope/telescope-ui-select.nvim'
+  use {
+    'RutaTang/spectacle.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope.nvim'
+    }
+  }
 
   -- Icons
   use 'ryanoasis/vim-devicons' -- NERDTree likes these
@@ -57,14 +64,14 @@ return require('packer').startup(function()
   use 'habamax/vim-godot'
 
   -- DEV
-  use {
-    'enclaver/spectacle.nvim',
-    branch = 'enclaver/create-dir-on-save',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim'
-    }
-  }
+  -- use {
+  --   'enclaver/spectacle.nvim',
+  --   branch = 'enclaver/create-dir-on-save',
+  --   requires = {
+  --     'nvim-lua/plenary.nvim',
+  --     'nvim-telescope/telescope.nvim'
+  --   }
+  -- }
 
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
