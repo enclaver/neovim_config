@@ -9,7 +9,7 @@ vim.o.encoding = "utf-8"
 vim.wo.list = true -- Show invisible characters
 vim.o.listchars = "tab:$\\,eol:¬"
 vim.wo.colorcolumn = "140"
-vim.wo.relativenumber = true
+-- vim.wo.relativenumber = true
 
 -- Fold
 vim.wo.foldmethod = 'indent'
