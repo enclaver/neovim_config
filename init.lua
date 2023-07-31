@@ -5,8 +5,6 @@ return require('packer').startup(function()
 
   use 'neovim/nvim-lspconfig'
   use {'dracula/vim', as = 'dracula'}
-  use 'preservim/nerdtree'
-  use 'Xuyuanp/nerdtree-git-plugin'
   use 'AndrewRadev/linediff.vim'        -- Visual select and :Linediff
   use 'AndrewRadev/splitjoin.vim'       -- keys `gS`, `gJ`
   use 'AndrewRadev/deleft.vim'          -- keys `dh`
@@ -49,7 +47,6 @@ return require('packer').startup(function()
   }
 
   -- Icons
-  use 'ryanoasis/vim-devicons' -- NERDTree likes these
   use 'nvim-tree/nvim-web-devicons' -- Telescope likes these
 
   -- Status line
@@ -62,6 +59,18 @@ return require('packer').startup(function()
   use 'sindrets/diffview.nvim'
   use 'lewis6991/gitsigns.nvim'
   use 'habamax/vim-godot'
+
+  use {
+  'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-tree/nvim-web-devicons',
+      'MunifTanjim/nui.nvim',
+    },
+  }
+  vim.api.nvim_set_keymap('n', '<Tab>', ':Neotree reveal<CR>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '<S-Tab>', ':Neotree<CR>', { noremap = true })
 
   -- DEV
   -- use {
@@ -78,7 +87,6 @@ return require('packer').startup(function()
   require('std_config')
   require('colorscheme_config')
   require('ruby_config')
-  require('nerd_tree_config')
   require('easy_clip_config')
   require('lsp_config')
   require('cmp_config')
