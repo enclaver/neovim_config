@@ -69,8 +69,8 @@ return require('packer').startup(function(use)
       'MunifTanjim/nui.nvim',
     },
   }
-  vim.api.nvim_set_keymap('n', '<Tab>', ':Neotree reveal<CR>', { noremap = true })
-  vim.api.nvim_set_keymap('n', '<S-Tab>', ':Neotree<CR>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '`', ':Neotree reveal<CR>', { noremap = true })
+  vim.api.nvim_set_keymap('n', '~', ':Neotree <CR>', { noremap = true })
 
   -- DEV
   -- use {
