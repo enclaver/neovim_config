@@ -96,6 +96,12 @@ return require('packer').startup(function(use)
 
   require('Comment').setup{}
 
+  use {
+    'vim-test/vim-test'
+  }
+  vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:TestNearest<cr>',{})
+  vim.api.nvim_set_keymap('n', '<leader>T', '<cmd>:TestFile<cr>',{})
+
   vim.api.nvim_set_keymap('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>',{})
   vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>',{})
   vim.api.nvim_set_keymap('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>',{})
