@@ -99,4 +99,18 @@ return require('packer').startup(function()
   vim.api.nvim_set_keymap('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>',{})
   vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>',{})
   vim.api.nvim_set_keymap('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>',{})
+
+  require("neo-tree").setup({
+    event_handlers = {
+      {
+        event = "file_opened",
+        handler = function(_)
+          -- auto close
+          -- vimc.cmd("Neotree close")
+          -- OR
+          require("neo-tree.command").execute({ action = "close" })
+        end
+      },
+    }
+  })
 end)
