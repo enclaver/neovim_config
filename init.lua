@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-fugitive'              -- :Gdiff :Gblame
   use 'tpope/vim-rhubarb'               -- :Gbrowse
   use 'tpope/vim-repeat'                -- needed for vim-easyclip
+  use 'tpope/vim-surround'
   use 'svermeulen/vim-easyclip'         -- yank between vim sessions
 
   -- React Native
@@ -87,6 +88,9 @@ return require('packer').startup(function(use)
   use { 'j-hui/fidget.nvim', tag = 'legacy' }
   require('fidget').setup()
 
+  use 'folke/which-key.nvim'
+  require("which-key").setup {}
+
   -- DEV
   -- use {
   --   'enclaver/spectacle.nvim',
@@ -112,15 +116,13 @@ return require('packer').startup(function(use)
 
   require('Comment').setup{}
 
-  use {
-    'vim-test/vim-test'
-  }
-  vim.api.nvim_set_keymap('n', '<leader>t', '<cmd>:TestNearest<cr>',{})
-  vim.api.nvim_set_keymap('n', '<leader>T', '<cmd>:TestFile<cr>',{})
+  use 'vim-test/vim-test'
+  vim.keymap.set('n', '<leader>t', '<cmd>:TestNearest<cr>', { desc = 'Test Nearest' })
+  vim.keymap.set('n', '<leader>T', '<cmd>:TestFile<cr>', { desc = 'Test File' })
 
-  vim.api.nvim_set_keymap('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>',{})
-  vim.api.nvim_set_keymap('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>',{})
-  vim.api.nvim_set_keymap('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>',{})
+  vim.keymap.set('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>', { desc = 'Session Load' })
+  vim.keymap.set('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>', { desc = 'Session Save' })
+  vim.keymap.set('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>', { desc = 'Session Save As' })
 
   require("neo-tree").setup({
     event_handlers = {
