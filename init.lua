@@ -1,3 +1,7 @@
+-- Mapleader
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function(use)
