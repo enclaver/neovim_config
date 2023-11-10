@@ -84,6 +84,9 @@ return require('packer').startup(function(use)
     build = ':TSUpdate',
   }
 
+  use { 'j-hui/fidget.nvim', tag = 'legacy' }
+  require('fidget').setup()
+
   -- DEV
   -- use {
   --   'enclaver/spectacle.nvim',
