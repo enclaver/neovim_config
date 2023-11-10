@@ -36,7 +36,7 @@ return require('packer').startup(function(use)
 
   -- Telescope
   use 'nvim-lua/plenary.nvim'
-  use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
+  use { 'nvim-telescope/telescope.nvim', tag = '0.1.4' }
   use 'nvim-telescope/telescope-ui-select.nvim'
   use {
     'RutaTang/spectacle.nvim',
@@ -72,6 +72,14 @@ return require('packer').startup(function(use)
   vim.api.nvim_set_keymap('n', '`', ':Neotree reveal<CR>', { noremap = true })
   vim.api.nvim_set_keymap('n', '~', ':Neotree <CR>', { noremap = true })
 
+  use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+    build = ':TSUpdate',
+  }
+
   -- DEV
   -- use {
   --   'enclaver/spectacle.nvim',
@@ -93,6 +101,7 @@ return require('packer').startup(function(use)
   require('telescope_config')
   require('lualine_config')
   require('gitsigns_config')
+  require('treesitter_config')
 
   require('Comment').setup{}
 
