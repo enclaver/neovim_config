@@ -41,3 +41,13 @@ vim.o.diffopt = vim.o.diffopt .. ',followwrap'
 
 -- Vertical diffs
 vim.o.diffopt = vim.o.diffopt .. ",vertical"
+
+-- Highlight on yank
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})
