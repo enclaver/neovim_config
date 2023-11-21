@@ -1,19 +1,3 @@
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-require'lspconfig'.solargraph.setup {
-  capabilities = capabilities
-}
-
-require'lspconfig'.tsserver.setup {
-  capabilities = capabilities
-}
-
-require'lspconfig'.lua_ls.setup {
-  capabilities = capabilities
-}
-
-local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(_, bufnr)
@@ -47,19 +31,38 @@ local on_attach = function(_, bufnr)
   --buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "solargraph", "tsserver", "lua_ls" }
-for _, lsp in ipairs(servers) do
-  nvim_lsp[lsp].setup {
-    on_attach = on_attach,
-    flags = {
-      debounce_text_changes = 150,
-    }
-  }
-end
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-nvim_lsp["lua_ls"].setup {
+require'lspconfig'.solargraph.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+require'lspconfig'.tsserver.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+require("lspconfig").omnisharp.setup {
+  capabilities = capabilities,
+  handlers = {
+    ["textDocument/definition"] = require('omnisharp_extended').handler,
+  },
+  cmd = { "/usr/bin/omnisharp", "--languageserver" , "--hostPID", tostring(vim.fn.getpid()) },
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
+require'lspconfig'.lua_ls.setup {
+  capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,

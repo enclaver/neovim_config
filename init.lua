@@ -18,6 +18,9 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'svermeulen/vim-easyclip'         -- yank between vim sessions
 
+  -- Dot Net
+  use 'Hoffs/omnisharp-extended-lsp.nvim'
+
   -- React Native
   use 'pangloss/vim-javascript'
   use 'leafgarland/typescript-vim'
