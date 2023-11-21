@@ -63,6 +63,9 @@ return require('packer').startup(function(use)
   -- Comments
   use 'numToStr/Comment.nvim'
 
+  -- DBT
+  use 'PedramNavid/dbtpal'
+
   -- TEMP
   use 'sindrets/diffview.nvim'
   use 'lewis6991/gitsigns.nvim'
@@ -116,6 +119,7 @@ return require('packer').startup(function(use)
   require('lualine_config')
   require('gitsigns_config')
   require('treesitter_config')
+  require('dbt_config')
 
   require('Comment').setup{}
 
