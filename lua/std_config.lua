@@ -21,7 +21,7 @@ vim.wo.foldlevel = 99
 vim.o.splitbelow = true
 vim.o.splitright = true
 
-vim.keymap.set('n', '<leader>n', ':noh<CR>', { desc = 'Clear Search Highlight' })
+vim.keymap.set('n', '<leader> ', ':noh<CR>', { desc = 'Clear Search Highlight' })
 
 vim.keymap.set('n', '<M-,>', ':tabprevious<CR>', { desc = 'Previous Tab' })
 vim.keymap.set('n', '<M-.>', ':tabnext<CR>', { desc = 'Next Tab' })
