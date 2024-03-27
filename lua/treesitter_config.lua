@@ -17,6 +17,7 @@ vim.defer_fn(function()
       'bash',
       'ruby',
       'c_sharp',
+      'sql',
     },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
