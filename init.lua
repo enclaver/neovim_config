@@ -97,6 +97,8 @@ return require('packer').startup(function(use)
   use 'folke/which-key.nvim'
   require("which-key").setup {}
 
+  use 'vim-test/vim-test'
+
   -- DEV
   -- use {
   --   'enclaver/spectacle.nvim',
@@ -120,12 +122,9 @@ return require('packer').startup(function(use)
   require('gitsigns_config')
   require('treesitter_config')
   require('dbt_config')
+  require('test_config')
 
   require('Comment').setup{}
-
-  use 'vim-test/vim-test'
-  vim.keymap.set('n', '<leader>t', '<cmd>:TestNearest<cr>', { desc = 'Test Nearest' })
-  vim.keymap.set('n', '<leader>T', '<cmd>:TestFile<cr>', { desc = 'Test File' })
 
   vim.keymap.set('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>', { desc = 'Session Load' })
   vim.keymap.set('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>', { desc = 'Session Save' })

@@ -33,7 +33,15 @@ end
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require'lspconfig'.solargraph.setup {
+-- require'lspconfig'.solargraph.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   flags = {
+--     debounce_text_changes = 150,
+--   }
+-- }
+
+require'lspconfig'.ruby_lsp.setup {
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
@@ -41,13 +49,14 @@ require'lspconfig'.solargraph.setup {
   }
 }
 
-require'lspconfig'.tsserver.setup {
-  capabilities = capabilities,
-  on_attach = on_attach,
-  flags = {
-    debounce_text_changes = 150,
-  }
-}
+-- "tsserver is deprecated, use tl_ls instead"
+-- require'lspconfig'.tsserver.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   flags = {
+--     debounce_text_changes = 150,
+--   }
+-- }
 
 require("lspconfig").omnisharp.setup {
   capabilities = capabilities,
