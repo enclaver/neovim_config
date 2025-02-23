@@ -24,6 +24,18 @@ require('telescope').setup{
       }
     }
   },
+  defaults = {
+    file_ignore_patterns = {
+      "%.tres",
+      "%.tscn",
+      "%.import",
+      "%.png",
+      "%.glb",
+      "%.godot",
+      "%.svg",
+      "%.fbx",
+    }
+  },
   extensions = {
     ["ui-select"] = {
       require("telescope.themes").get_dropdown {
