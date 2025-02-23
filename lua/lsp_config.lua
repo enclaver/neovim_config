@@ -106,6 +106,14 @@ require'lspconfig'.lua_ls.setup {
   end
 }
 
+require'lspconfig'.gdscript.setup {
+  capabilities = capabilities,
+  on_attach = on_attach,
+  flags = {
+    debounce_text_changes = 150,
+  }
+}
+
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go To Previous Diagnostic Message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go To Next Diagnostic Message' })
