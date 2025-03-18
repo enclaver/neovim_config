@@ -13,6 +13,9 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 -- vim.wo.relativenumber = true
 
+-- Escape terminal
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true })
+
 -- Fold
 vim.wo.foldmethod = 'indent'
 vim.wo.foldlevel = 99
