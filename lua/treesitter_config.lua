@@ -28,10 +28,14 @@ vim.defer_fn(function()
     incremental_selection = {
       enable = true,
       keymaps = {
-        init_selection = '<c-space>',
-        node_incremental = '<c-space>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-space>',
+        -- init_selection = '<c-space>',
+        -- node_incremental = '<c-space>',
+        -- scope_incremental = '<c-s>',
+        -- node_decremental = '<M-space>',
+        init_selection = 'gnn',
+        node_incremental = 'grn',
+        scope_incremental = 'grc',
+        node_decremental = 'grm',
       },
     },
     textobjects = {
@@ -46,25 +50,39 @@ vim.defer_fn(function()
           ['if'] = '@function.inner',
           ['ac'] = '@class.outer',
           ['ic'] = '@class.inner',
+          -- ['ab'] = '@block.outer',
+          -- ['ib'] = '@block.inner',
+          -- Supported ruby options
+          -- @block.inner
+          -- @block.outer
+          -- @class.inner
+          -- @class.outer
+          -- @comment.outer
+          -- @function.inner
+          -- @function.outer
+          -- @parameter.inner
+          -- @parameter.outer
+          -- @regex.inner
+          -- @regex.outer
         },
       },
       move = {
         enable = true,
         set_jumps = true, -- whether to set jumps in the jumplist
         goto_next_start = {
-          [']m'] = '@function.outer',
+          [']f'] = '@function.outer',
           [']]'] = '@class.outer',
         },
         goto_next_end = {
-          [']M'] = '@function.outer',
+          [']F'] = '@function.outer',
           [']['] = '@class.outer',
         },
         goto_previous_start = {
-          ['[m'] = '@function.outer',
+          ['[f'] = '@function.outer',
           ['[['] = '@class.outer',
         },
         goto_previous_end = {
-          ['[M'] = '@function.outer',
+          ['[F'] = '@function.outer',
           ['[]'] = '@class.outer',
         },
       },
