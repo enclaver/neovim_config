@@ -18,7 +18,7 @@ require('lualine').setup({
     lualine_c = {
       {
         'filename',
-        fmt = function(str) return vim.fn.expand('%:h') end
+        fmt = function() return vim.fn.expand('%:h') end
       },
       {
         'filename',
