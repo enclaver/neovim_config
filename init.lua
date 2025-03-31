@@ -16,7 +16,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'               -- :Gbrowse
   use 'tpope/vim-repeat'                -- needed for vim-easyclip
   use 'tpope/vim-surround'
-  use 'svermeulen/vim-easyclip'         -- yank between vim sessions
+  use 'gbprod/substitute.nvim'
 
   -- Dot Net
   use 'Hoffs/omnisharp-extended-lsp.nvim'
@@ -114,7 +114,7 @@ return require('packer').startup(function(use)
   require('std_config')
   require('colorscheme_config')
   require('ruby_config')
-  require('easy_clip_config')
+  require('substitute_config')
   require('lsp_config')
   require('cmp_config')
   require('telescope_config')
