@@ -56,3 +56,35 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.opt.number = true
 vim.opt.relativenumber = true
+
+-- Toggle Quickfix List
+vim.keymap.set('n', '<leader>q', function()
+  local is_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.quickfix == 1 then
+      is_open = true
+      break
+    end
+  end
+  if is_open then
+    vim.cmd('cclose')
+  else
+    vim.cmd('copen')
+  end
+end, { noremap = true, silent = true, desc = "Toggle Quickfix List" })
+
+-- Toggle Location List
+vim.keymap.set('n', '<leader>w', function()
+  local is_open = false
+  for _, win in ipairs(vim.fn.getwininfo()) do
+    if win.loclist == 1 then
+      is_open = true
+      break
+    end
+  end
+  if is_open then
+    vim.cmd('lclose')
+  else
+    vim.cmd('lopen')
+  end
+end, { noremap = true, silent = true, desc = "Toggle Location List" })

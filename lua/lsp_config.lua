@@ -118,5 +118,7 @@ require'lspconfig'.gdscript.setup {
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go To Previous Diagnostic Message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go To Next Diagnostic Message' })
+vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, { desc = 'Go To Previous Diagnostic Message' })
+vim.keymap.set('n', ']e', vim.diagnostic.goto_next, { desc = 'Go To Next Diagnostic Message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open Diagnostics Float' })
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open Diagnostics List' })
+vim.keymap.set('n', '<leader>E', vim.diagnostic.setloclist, { desc = 'Open Diagnostics List' })
