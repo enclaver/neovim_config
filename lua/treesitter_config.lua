@@ -18,6 +18,7 @@ vim.defer_fn(function()
       'ruby',
       'c_sharp',
       'sql',
+      'gdscript',
     },
 
     -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
