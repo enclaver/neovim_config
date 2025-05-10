@@ -71,6 +71,7 @@ return require('packer').startup(function(use)
   use 'lewis6991/gitsigns.nvim'
   use 'habamax/vim-godot'
 
+  -- NeoTree
   use {
   'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
@@ -141,7 +142,19 @@ return require('packer').startup(function(use)
           require("neo-tree.command").execute({ action = "close" })
         end
       },
-    }
+    },
+    filesystem = {
+      filtered_items = {
+        visible = false,
+        hide_by_pattern = {
+          "*.uid",
+          "*.tscn",
+          "*.tres",
+          "*.import",
+          "*.png",
+        },
+      },
+    },
   })
 
   vim.g.copilot_settings = { selectedCompletionModel = 'claude-3.7-sonnet' }

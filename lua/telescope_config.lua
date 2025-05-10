@@ -34,6 +34,7 @@ require('telescope').setup{
       "%.godot",
       "%.svg",
       "%.fbx",
+      "%.uid",
     }
   },
   extensions = {
