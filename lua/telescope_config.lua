@@ -35,7 +35,20 @@ require('telescope').setup{
       "%.svg",
       "%.fbx",
       "%.uid",
-    }
+    },
+    layout_config = {
+      horizontal = {
+        width = 0.95,
+        height = 0.95,
+        preview_width = 0.6,
+      },
+      vertical = {
+        width = 0.95,
+        height = 0.95,
+        preview_height = 0.6,
+      },
+    },
+    -- layout_strategy = 'vertical',
   },
   extensions = {
     ["ui-select"] = {
