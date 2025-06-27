@@ -100,6 +100,12 @@ return require('packer').startup(function(use)
 
   use 'vim-test/vim-test'
 
+  use {
+    "ThePrimeagen/harpoon",
+    branch = "harpoon2",
+    requires = { {"nvim-lua/plenary.nvim"} }
+  }
+
   -- DEV
   -- use {
   --   'enclaver/spectacle.nvim',
@@ -124,6 +130,7 @@ return require('packer').startup(function(use)
   require('treesitter_config')
   require('dbt_config')
   require('test_config')
+  require('harpoon_config')
 
   require('Comment').setup{}
 
