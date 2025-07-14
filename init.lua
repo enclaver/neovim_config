@@ -164,5 +164,5 @@ return require('packer').startup(function(use)
     },
   })
 
-  vim.g.copilot_settings = { selectedCompletionModel = 'claude-3.7-sonnet' }
+  vim.g.copilot_settings = { selectedCompletionModel = 'claude-4.0-sonnet' }
 end)

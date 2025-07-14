@@ -122,3 +122,9 @@ vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, { desc = 'Go To Previous Dia
 vim.keymap.set('n', ']e', vim.diagnostic.goto_next, { desc = 'Go To Next Diagnostic Message' })
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open Diagnostics Float' })
 vim.keymap.set('n', '<leader>E', vim.diagnostic.setloclist, { desc = 'Open Diagnostics List' })
+
+-- vim.api.nvim_create_autocmd("BufWritePre", {
+--   callback = function()
+--     vim.lsp.buf.format({ async = false })
+--   end,
+-- })
