@@ -1,3 +1,5 @@
+local actions = require("telescope.actions")
+local action_state = require("telescope.actions.state")
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find Files' })
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
@@ -22,7 +24,23 @@ require('telescope').setup{
           ["<M-w>"] = "delete_buffer"
         }
       }
-    }
+    },
+    git_stash = {
+      mappings = {
+        i = {
+          ["<M-w>"] = function(prompt_bufnr)
+            local entry = action_state.get_selected_entry()
+            actions.close(prompt_bufnr)
+            if entry and entry.value then
+              vim.fn.system({ "git", "stash", "drop", entry.value })
+              print("Deleted stash:", entry.value)
+            else
+              print("No stash selected.")
+            end
+          end,
+        },
+      },
+    },
   },
   defaults = {
     file_ignore_patterns = {
