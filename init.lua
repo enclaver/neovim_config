@@ -46,13 +46,6 @@ return require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use { 'nvim-telescope/telescope.nvim', tag = '0.1.4' }
   use 'nvim-telescope/telescope-ui-select.nvim'
-  use {
-    'RutaTang/spectacle.nvim',
-    requires = {
-      'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope.nvim'
-    }
-  }
 
   -- Icons
   use 'nvim-tree/nvim-web-devicons' -- Telescope likes these
@@ -106,16 +99,6 @@ return require('packer').startup(function(use)
     requires = { {"nvim-lua/plenary.nvim"} }
   }
 
-  -- DEV
-  -- use {
-  --   'enclaver/spectacle.nvim',
-  --   branch = 'enclaver/create-dir-on-save',
-  --   requires = {
-  --     'nvim-lua/plenary.nvim',
-  --     'nvim-telescope/telescope.nvim'
-  --   }
-  -- }
-
   --use 'vim-ruby/vim-ruby' -- Disabled for now
 
   require('std_config')
@@ -133,10 +116,6 @@ return require('packer').startup(function(use)
   require('harpoon_config')
 
   require('Comment').setup{}
-
-  vim.keymap.set('n', '<leader>sq', '<cmd>:lua require("spectacle").SpectacleTelescope()<cr>', { desc = 'Session Load' })
-  vim.keymap.set('n', '<leader>ss', '<cmd>:lua require("spectacle").SpectacleSave()<cr>', { desc = 'Session Save' })
-  vim.keymap.set('n', '<leader>sa', '<cmd>:lua require("spectacle").SpectacleSaveAs()<cr>', { desc = 'Session Save As' })
 
   require("neo-tree").setup({
     event_handlers = {

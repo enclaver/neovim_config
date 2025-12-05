@@ -41,13 +41,44 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities()
 --   }
 -- }
 
-require'lspconfig'.ruby_lsp.setup {
+-- require'lspconfig'.ruby_lsp.setup {
+--   capabilities = capabilities,
+--   on_attach = on_attach,
+--   flags = {
+--     debounce_text_changes = 150,
+--     allow_incremental_sync = true,
+--   }
+-- }
+
+-- This should enable reindex on edit for ruby-lsp
+-- https://github.com/Shopify/ruby-lsp/issues/3384#issuecomment-2981772059
+local methods = vim.lsp.protocol.Methods
+local function codelens_on_attach(client, bufnr)
+  if client:supports_method(methods.textDocument_codeLens) then
+    vim.lsp.codelens.refresh()
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+      buffer = bufnr,
+      callback = vim.lsp.codelens.refresh,
+    })
+  end
+end
+vim.api.nvim_create_autocmd('LspAttach', {
+  group = vim.api.nvim_create_augroup('my-lsp-attach', { clear = true }),
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    codelens_on_attach(client, args.buf)
+  end,
+})
+
+require('lspconfig').ruby_lsp.setup({
+  cmd = { "ruby-lsp" },
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
-  }
-}
+    allow_incremental_sync = true,
+  },
+})
 
 -- "tsserver is deprecated, use tl_ls instead"
 -- require'lspconfig'.tsserver.setup {
