@@ -26,6 +26,7 @@ vim.o.splitright = true
 
 vim.keymap.set('n', '<leader> ', ':noh<CR>', { desc = 'Clear Search Highlight' })
 
+vim.keymap.set("n", "<M-m>", ":tabnew<CR>", { desc = "New Tab" })
 vim.keymap.set('n', '<M-,>', ':tabprevious<CR>', { desc = 'Previous Tab' })
 vim.keymap.set('n', '<M-.>', ':tabnext<CR>', { desc = 'Next Tab' })
 
