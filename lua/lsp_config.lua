@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-require('lspconfig').ruby_lsp.setup({
+vim.lsp.config("ruby_lsp", {
   cmd = { "ruby-lsp" },
   capabilities = capabilities,
   on_attach = on_attach,
@@ -79,6 +79,7 @@ require('lspconfig').ruby_lsp.setup({
     allow_incremental_sync = true,
   },
 })
+vim.lsp.enable({"ruby_lsp"})
 
 -- "tsserver is deprecated, use tl_ls instead"
 -- require'lspconfig'.tsserver.setup {
@@ -89,7 +90,7 @@ require('lspconfig').ruby_lsp.setup({
 --   }
 -- }
 
-require("lspconfig").omnisharp.setup {
+vim.lsp.config("omnisharp", {
   capabilities = capabilities,
   handlers = {
     ["textDocument/definition"] = require('omnisharp_extended').handler,
@@ -99,9 +100,10 @@ require("lspconfig").omnisharp.setup {
   flags = {
     debounce_text_changes = 150,
   }
-}
+})
+vim.lsp.enable({"omnisharp"})
 
-require'lspconfig'.lua_ls.setup {
+vim.lsp.config("lua_ls", {
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
@@ -136,15 +138,17 @@ require'lspconfig'.lua_ls.setup {
   settings = {
     Lua = {}
   }
-}
+})
+vim.lsp.enable({"lua_ls"})
 
-require'lspconfig'.gdscript.setup {
+vim.lsp.config("gdscript", {
   capabilities = capabilities,
   on_attach = on_attach,
   flags = {
     debounce_text_changes = 150,
   }
-}
+})
+vim.lsp.enable({"gdscript"})
 
 -- Diagnostic
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go To Previous Diagnostic Message' })
